@@ -1,0 +1,60 @@
+name: Foresight CI Workflow
+
+
+on:
+  workflow_dispatch:
+
+
+env:
+  FORESIGHT_UPLOADER_SIGNER_URL: https://upload.service.runforesight.me
+  WORKFLOW_TELEMETRY_BASE_URL: https://api.service.runforesight.me
+  FORESIGHT_LOG_LEVEL: DEBUG
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+
+    
+    - name: Collect Workflow Telemetry
+      if: always()
+      uses: runforesight/foresight-workflow-kit-action@v1
+      with:
+        api_key: ${{ secrets.FORESIGHT_API_KEY }}
+        
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - run: npm install
+    #- name: Run Tests
+      #continue-on-error: true
+      #run: npm test
+    - name: Thundra Registry
+      if: ${{ always() }}
+      run: |
+        npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
+        npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
+    - name: Analyze Test and/or Coverage Results
+      if: always()
+      uses: runforesight/foresight-test-kit-action@v1
+      with:
+        api_key: ${{ secrets.FORESIGHT_API_KEY }}
+        test_framework: JEST
+        test_format: JSON
+        test_path: ./**/results.json
+        coverage_format: LCOV/TXT
+        coverage_path: ./**/*.info
+        cli_version: 133.233.733
