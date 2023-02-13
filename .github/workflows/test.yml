@@ -39,14 +39,9 @@ jobs:
         cache: 'npm'
         
     - run: npm install
-    #- name: Run Tests
-      #continue-on-error: true
-      #run: npm test
-    - name: Thundra Registry
-      if: ${{ always() }}
-      run: |
-        npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
-        npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
+    - name: Run Tests
+      continue-on-error: true
+      run: npm test
     - name: Analyze Test and/or Coverage Results
       if: always()
       uses: runforesight/foresight-test-kit-action@v1
@@ -57,4 +52,3 @@ jobs:
         test_path: ./**/results.json
         coverage_format: LCOV/TXT
         coverage_path: ./**/*.info
-        cli_version: 133.233.733
