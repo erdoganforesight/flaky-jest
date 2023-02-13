@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="2" errors="1" time="0.581">
+  <testsuite name="Flaky-sum-most" errors="0" failures="2" skipped="1" timestamp="2022-12-28T11:25:11" time="0.435" tests="5">
+    <testcase classname="Flaky-sum-most should pass only on second run" name="Flaky-sum-most should pass only on second run" time="0.002">
+    </testcase>
+    <testcase classname="Flaky-sum-most it is skipped" name="Flaky-sum-most it is skipped" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Flaky-sum-most should not pass" name="Flaky-sum-most should not pass" time="0">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 5
+Received: 3
+    at Object.toBe (/Users/gokhansimsek/Desktop/flaky/jest/tests/sum.test.js:21:27)
+    at Promise.then.completed (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/utils.js:222:10)
+    at _callCircusTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:248:40)
+    at _runTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:184:3)
+    at _runTestsForDescribeBlock (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:108:7)
+    at _runTestsForDescribeBlock (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:81:9)
+    at run (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:26:3)
+    at runAndTransformResultsToJestFormat (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:120:21)
+    at jestAdapter (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Flaky-sum-most should raise error" name="Flaky-sum-most should raise error" time="0">
+      <failure>Error: intentional error!
+    at Object.&lt;anonymous&gt; (/Users/gokhansimsek/Desktop/flaky/jest/tests/sum.test.js:25:15)
+    at Promise.then.completed (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/utils.js:222:10)
+    at _callCircusTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:248:40)
+    at _runTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:184:3)
+    at _runTestsForDescribeBlock (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:108:7)
+    at _runTestsForDescribeBlock (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:81:9)
+    at run (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/run.js:26:3)
+    at runAndTransformResultsToJestFormat (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:120:21)
+    at jestAdapter (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/gokhansimsek/Desktop/flaky/jest/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Flaky-sum should dasdasdasdasda" name="Flaky-sum should dasdasdasdasda" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="tests/sub.test.js" errors="1" failures="0" skipped="0" timestamp="1970-01-01T00:00:00" time="0" tests="0">
+    <testcase classname="Test suite failed to run" name="tests/sub.test.js" time="0">
+      <error>  ● Test suite failed to run
+
+    ReferenceError: sum is not defined
+</error>
+    </testcase>
+    <testcase classname="Test suite failed to run" name="tests/sub.test.js" time="0">
+      <failure>{}</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
