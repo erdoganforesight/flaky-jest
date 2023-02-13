@@ -1,4 +1,4 @@
-name: Foresight CI Workflow
+name: Jest Flaky Lab
 
 
 on:
